@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXC.JWT.Auth.Generator", "DXC.JWT.Auth.Generator\DXC.JWT.Auth.Generator.csproj", "{336D7C43-3B14-4E50-935C-C1372BAD6787}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXC.JWT.Auth.Api", "DXC.JWT.Auth.Api\DXC.JWT.Auth.Api.csproj", "{94DB4C3F-3720-4B50-82A0-4D7FCBFB4188}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DXC.JWT.Auth.Core", "DXC.JWT.Auth.Core\DXC.JWT.Auth.Core.csproj", "{A93C0973-C218-440D-80CA-978A0F935645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXC.JWT.Auth.Core.Specs", "DXC.JWT.Auth.Core.Specs\DXC.JWT.Auth.Core.Specs.csproj", "{3C732BDC-9714-4D7A-8EFC-D4508BD3EE85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXC.JWT.Auth.SmokeTests", "DXC.JWT.Auth.SmokeTests\DXC.JWT.Auth.SmokeTests.csproj", "{B2350E60-1CDE-4C58-87B6-57F894B7555C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{4B02C5CF-261B-4EAE-BD79-1FC653F01EB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{336D7C43-3B14-4E50-935C-C1372BAD6787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336D7C43-3B14-4E50-935C-C1372BAD6787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336D7C43-3B14-4E50-935C-C1372BAD6787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336D7C43-3B14-4E50-935C-C1372BAD6787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94DB4C3F-3720-4B50-82A0-4D7FCBFB4188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94DB4C3F-3720-4B50-82A0-4D7FCBFB4188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94DB4C3F-3720-4B50-82A0-4D7FCBFB4188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94DB4C3F-3720-4B50-82A0-4D7FCBFB4188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A93C0973-C218-440D-80CA-978A0F935645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93C0973-C218-440D-80CA-978A0F935645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93C0973-C218-440D-80CA-978A0F935645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93C0973-C218-440D-80CA-978A0F935645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C732BDC-9714-4D7A-8EFC-D4508BD3EE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C732BDC-9714-4D7A-8EFC-D4508BD3EE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C732BDC-9714-4D7A-8EFC-D4508BD3EE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C732BDC-9714-4D7A-8EFC-D4508BD3EE85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2350E60-1CDE-4C58-87B6-57F894B7555C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2350E60-1CDE-4C58-87B6-57F894B7555C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2350E60-1CDE-4C58-87B6-57F894B7555C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2350E60-1CDE-4C58-87B6-57F894B7555C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C732BDC-9714-4D7A-8EFC-D4508BD3EE85} = {4B02C5CF-261B-4EAE-BD79-1FC653F01EB3}
+		{B2350E60-1CDE-4C58-87B6-57F894B7555C} = {4B02C5CF-261B-4EAE-BD79-1FC653F01EB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4665D22-CAAD-4E2A-86B1-360F3B4367F9}
+	EndGlobalSection
+EndGlobal
