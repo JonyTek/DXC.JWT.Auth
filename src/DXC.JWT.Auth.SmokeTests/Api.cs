@@ -8,13 +8,18 @@ namespace DXC.JWT.Auth.SmokeTests
     public class Api
     {
         public async Task<HttpStatusCode> RequestSecureEndpointWithoutToken()
-        {            
-            return await MakeGetRequestTo("api/security/secure", null);
+        {
+            return await MakeRequestToSecureEndpoint(null);
         }
 
         public async Task<HttpStatusCode> RequestSecureEndpointWithValidToken(string username, string password)
         {
             var token = GenerateToken(username, password);
+            return await MakeRequestToSecureEndpoint(token);
+        }
+
+        private static async Task<HttpStatusCode> MakeRequestToSecureEndpoint(BearerToken token)
+        {
             return await MakeGetRequestTo("api/security/secure", token);
         }
 
@@ -26,9 +31,9 @@ namespace DXC.JWT.Auth.SmokeTests
                 ParameterType.HttpHeader);
 
             var taskCompletion = new TaskCompletionSource<IRestResponse>();
-            client.ExecuteAsync(request, r => taskCompletion.SetResult(r));
+            client.ExecuteAsync(request, response => taskCompletion.SetResult(response));
 
-            return ((RestResponse) (await taskCompletion.Task)).StatusCode;
+            return ((RestResponse) await taskCompletion.Task).StatusCode;
         }
 
         private static BearerToken GenerateToken(string username, string password)

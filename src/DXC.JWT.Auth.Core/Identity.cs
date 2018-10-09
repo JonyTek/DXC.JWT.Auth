@@ -26,6 +26,7 @@ namespace DXC.JWT.Auth.Core
             {
                 new Claim("fn", user.Fullname),
                 new Claim("id", user.Id.ToString()),
+                new Claim("em", user.Email),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email)
             };
 

@@ -6,17 +6,18 @@ using Moq;
 using Shouldly;
 using Xunit;
 
-namespace DXC.JWT.Auth.Core.Specs
+namespace DXC.JWT.Auth.Core.Specs.Identity
 {
-    public class WhenILoginWithValidCredentials : XBehaviourTest<Identity>
+    public class WhenILoginWithValidCredentials : XBehaviourTest<Core.Identity>
     {
         private string email;
         private string password;
+
         private ClaimsIdentity identity;
 
         private readonly Mock<IUserRepository> userRepository = new Mock<IUserRepository>();
 
-        protected override Identity CreateSystemUnderTest()
+        protected override Core.Identity CreateSystemUnderTest()
         {
             userRepository.Setup(x => x.FindUserBy(email)).Returns(new User
             {
@@ -26,7 +27,7 @@ namespace DXC.JWT.Auth.Core.Specs
                 Fullname = "Jonathan Swieboda"
             });
 
-            return new Identity(userRepository.Object);
+            return new Core.Identity(userRepository.Object);
         }
 
         protected override void Given()
@@ -47,7 +48,7 @@ namespace DXC.JWT.Auth.Core.Specs
         }
 
         [Fact]
-        public void ShouldHaveClaimContaingTheFullName()
+        public void ShouldHaveClaimContainingTheFullName()
         {
             var claim = identity.Claims.FirstOrDefault(x => x.Type.Equals("fn"));
 
@@ -56,7 +57,7 @@ namespace DXC.JWT.Auth.Core.Specs
         }
 
         [Fact]
-        public void ShouldHaveClaimContaingTheId()
+        public void ShouldHaveClaimContainingTheId()
         {
             var claim = identity.Claims.FirstOrDefault(x => x.Type.Equals("id"));
 
@@ -64,7 +65,7 @@ namespace DXC.JWT.Auth.Core.Specs
             claim.Value.ShouldBe("e54dd29d-8cc4-447e-8e9b-ead0c5a5fd85");
         }
         [Fact]
-        public void ShouldHaveClaimContaingTheEmail()
+        public void ShouldHaveClaimContainingTheEmail()
         {
             var claim = identity.Claims.FirstOrDefault(x => x.Type.Equals("email"));
 

@@ -23,15 +23,12 @@ namespace DXC.JWT.Auth.Core
                 .ToUnixTimeSeconds();
 
             var claims = new[]
-                {
-                    new Claim(JwtRegisteredClaimNames.Email, email),
-                    new Claim(JwtRegisteredClaimNames.Sub, email),
-                    new Claim(JwtRegisteredClaimNames.Jti, options.NonceGenerator()),
-                    new Claim(JwtRegisteredClaimNames.Iat,
-                        expiresAt.ToString(),
-                        ClaimValueTypes.Integer64)
-                }
-                .Union(identity.Claims);
+            {
+                new Claim(JwtRegisteredClaimNames.Jti, options.NonceGenerator()),
+                new Claim(JwtRegisteredClaimNames.Iat, expiresAt.ToString(),
+                    ClaimValueTypes.Integer64)
+            }
+            .Union(identity.Claims);
 
             var jwt = new JwtSecurityToken(options.Issuer, options.Audience, claims, now, now.Add(options.Expiration),
                 options.SigningCredentials);

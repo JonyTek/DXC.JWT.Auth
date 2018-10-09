@@ -1,13 +1,12 @@
-using System;
 using System.Security.Claims;
 using JustBehave;
 using Moq;
 using Shouldly;
 using Xunit;
 
-namespace DXC.JWT.Auth.Core.Specs
+namespace DXC.JWT.Auth.Core.Specs.Identity
 {
-    public class WhenILoginWithInvalidCredentials : XBehaviourTest<Identity>
+    public class WhenILoginWithInvalidCredentials : XBehaviourTest<Core.Identity>
     {
         private string email;
         private string password;
@@ -16,12 +15,13 @@ namespace DXC.JWT.Auth.Core.Specs
 
         private readonly Mock<IUserRepository> userRepository = new Mock<IUserRepository>();
 
-        protected override Identity CreateSystemUnderTest()
+        protected override Core.Identity CreateSystemUnderTest()
         {
             userRepository.Setup(x => x.FindUserBy(email)).Returns((User) null);
 
-            return new Identity(userRepository.Object);
+            return new Core.Identity(userRepository.Object);
         }
+
         protected override void Given()
         {
             email = "someunknownwmail@gmail.com"; 

@@ -8,10 +8,14 @@ namespace DXC.JWT.Auth.Generator
     {
         static void Main(string[] args)
         {
-            var generator = JwtProviderFactory.Create();
-            var token = generator.CreateToken("jonathontek@gmail.com", "p@ssw0rd");
+            var token = JwtProviderFactory.Create()
+                .CreateToken(
+                    "jonathontek@gmail.com", "p@ssw0rd"
+                );
 
-            Console.WriteLine(JsonConvert.SerializeObject(token, Formatting.Indented));
+            Console.WriteLine(
+                JsonConvert.SerializeObject(token, Formatting.Indented)
+            );
 
             Console.ReadKey();
         }

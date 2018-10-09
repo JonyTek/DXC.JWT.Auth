@@ -4,7 +4,10 @@
     {
         public static JwtProvider Create()
         {
-            return new JwtProvider(new TokenProviderOptions(new Identity(new UserRepository())));
+            return new JwtProvider(
+                new TokenProviderOptions(
+                    new Identity(new UserRepository()))
+            );
         }
     }
 }
