@@ -19,7 +19,7 @@ namespace DXC.JWT.Auth.Core.Specs.JwtProvider
         {
             identity.Setup(x => x.Resolve(email, password)).Returns(new ClaimsIdentity());
 
-            return new Core.JwtProvider(new TokenProviderOptions(identity.Object));
+            return new Core.JwtProvider(new TokenProviderOptions(), identity.Object);
         }
 
         protected override void Given()

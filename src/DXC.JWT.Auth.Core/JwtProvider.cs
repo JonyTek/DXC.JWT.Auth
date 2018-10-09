@@ -8,16 +8,18 @@ namespace DXC.JWT.Auth.Core
     public class JwtProvider
     {
         private readonly TokenProviderOptions options;
+        private readonly IIdentity identity;
 
-        public JwtProvider(TokenProviderOptions options)
+        public JwtProvider(TokenProviderOptions options, IIdentity identity)
         {
             this.options = options;
+            this.identity = identity;
         }
 
         public BearerToken CreateToken(string email, string password)
         {
             var now = DateTime.UtcNow;
-            var identity = options.IdentityResolver(email, password);
+            var claimsIdentity = identity.Resolve(email, password);
             var expiresAt = new DateTimeOffset(now.Add(options.Expiration))
                 .ToUniversalTime()
                 .ToUnixTimeSeconds();
@@ -28,7 +30,7 @@ namespace DXC.JWT.Auth.Core
                 new Claim(JwtRegisteredClaimNames.Iat, expiresAt.ToString(),
                     ClaimValueTypes.Integer64)
             }
-            .Union(identity.Claims);
+            .Union(claimsIdentity.Claims);
 
             var jwt = new JwtSecurityToken(options.Issuer, options.Audience, claims, now, now.Add(options.Expiration),
                 options.SigningCredentials);
